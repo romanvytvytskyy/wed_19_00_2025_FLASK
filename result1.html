@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="" />
+    <title>Вікторина</title>
+  </head>
+  <body>
+    <h1>Ваш результат:</h1>
+    <div class="outer_html">
+      <h3>
+        {{ right }} правильних з {{total}}. Успішність {{right * 100 / total}}%
+      </h3>
+    </div>
+    <a href="{{url_for('index')}}" class="button">На початок</a>
+  </body>
+</html>
