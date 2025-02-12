@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}" />
+    <title>Вікторина - Результати</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="quiz-card result-card">
+        <h2>Ваш результат</h2>
+        <div class="result-details">
+          <div class="score-circle">
+            <span class="score-number"
+              >{{(right * 100 / total)|round|int}}%</span
+            >
+          </div>
+          <p class="score-text">
+            Правильних відповідей: <strong>{{right}}</strong> з
+            <strong>{{total}}</strong>
+          </p>
+          {% if (right * 100 / total) >= 80 %}
+          <p class="score-message success">
+            Відмінний результат! Ви справжній експерт!
+          </p>
+          {% elif (right * 100 / total) >= 60 %}
+          <p class="score-message good">Добрий результат! Але є куди рости!</p>
+          {% else %}
+          <p class="score-message">
+            Спробуйте ще раз, щоб покращити свій результат!
+          </p>
+          {% endif %}
+        </div>
+        <a href="{{url_for('index')}}" class="btn btn-primary"
+          >Спробувати ще раз</a
+        >
+      </div>
+    </div>
+  </body>
+</html>
