@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}" />
+    <title>Вікторина</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="quiz-card">
+        {% if question %}
+        <div class="question">
+          <h2>{{question}}</h2>
+        </div>
+        {% endif %}
+
+        <form method="post" action="test">
+          <input type="hidden" name="q_id" value="{{quest_id}}" />
+          <div class="answers">
+            {% for answer in answers_list %}
+            <div class="answer-option">
+              <input
+                type="radio"
+                id="answer{{loop.index}}"
+                name="ans_text"
+                value="{{answer}}"
+              />
+              <label for="answer{{loop.index}}">{{answer}}</label>
+            </div>
+            {% endfor %}
+          </div>
+          <button type="submit" class="btn btn-primary">Відповісти</button>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>
